@@ -1,0 +1,24 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/edit_profile.css' %}">
+
+    <div class="edit-profile-container">
+        <h2>Edit Profile</h2>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="success-message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Changes</button>
+        </form>
+
+        <a href="{% url 'profile' %}">Back to Profile</a>
+    </div>
+{% endblock %}

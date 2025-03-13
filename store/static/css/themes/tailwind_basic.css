@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Primary Navbar */
+.store-navbar {
+    @apply bg-gray-900 text-white flex items-center justify-between p-4 shadow-lg;
+}
+
+.store-nav-left {
+    @apply flex items-center;
+}
+
+.store-profile {
+    @apply flex items-center space-x-2;
+}
+
+.store-profile-img {
+    @apply w-10 h-10 rounded-full;
+}
+
+.store-username {
+    @apply text-lg font-semibold;
+}
+
+/* Logo and Search */
+.store-nav-center {
+    @apply flex items-center space-x-4;
+}
+
+.store-logo-img {
+    @apply h-10;
+}
+
+.store-search-form {
+    @apply flex items-center bg-gray-800 rounded-lg overflow-hidden;
+}
+
+.store-search-form input {
+    @apply bg-transparent px-3 py-2 text-white outline-none;
+}
+
+.store-search-form button {
+    @apply px-4 text-white;
+}
+
+/* Right Section (Cart, Auth) */
+.store-nav-right {
+    @apply flex items-center space-x-4;
+}
+
+.store-cart-btn {
+    @apply flex items-center space-x-1 bg-blue-600 px-3 py-2 rounded-lg;
+}
+
+.store-cart-icon {
+    @apply text-xl;
+}
+
+.store-logout-form {
+    @apply inline-block;
+}
+
+.store-logout-btn {
+    @apply bg-red-600 px-3 py-2 rounded-lg;
+}
+
+.store-auth-btn {
+    @apply bg-gray-700 px-4 py-2 rounded-lg;
+}
+
+/* Secondary Navbar */
+.store-secondary-navbar {
+    @apply bg-gray-800 py-2;
+}
+
+.store-secondary-navbar ul {
+    @apply flex justify-center space-x-6;
+}
+
+.store-secondary-navbar li a {
+    @apply text-white hover:text-blue-400;
+}
+
+/* Content */
+.store-content {
+    @apply bg-gray-100 min-h-screen p-6;
+}

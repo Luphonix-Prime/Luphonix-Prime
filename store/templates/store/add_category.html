@@ -1,0 +1,20 @@
+{% extends 'store/base.html' %}
+{% load static %}  <!-- Load static files -->
+
+
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/add_category.css' %}">
+
+    <div class="add-category-container">
+        <h2 class="text-center">Add Category</h2>
+        <div class="card p-4">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Add Category</button>
+            </form>
+            <a href="{% url 'categories' %}" class="mt-3 d-block">Back to Categories</a>
+        </div>
+    </div>
+{% endblock %}

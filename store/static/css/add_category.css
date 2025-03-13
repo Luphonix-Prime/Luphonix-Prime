@@ -1,0 +1,66 @@
+/* Ensure the container is centered and does not overlap with navbar */
+.add-category-container {
+    max-width: 500px;  /* Limit form width */
+    margin: 80px auto; /* Adjust top margin to avoid navbar collision */
+    padding: 20px;
+    color: #333;
+    background: #fff;  /* White background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Card styling */
+.add-category-container .card {
+    background: #f9f9f9;  /* Light gray background */
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Form fields styling */
+.add-category-container form input,
+.add-category-container form select,
+.add-category-container form textarea {
+    width: 80%; /* Full width */
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Style for submit button */
+.add-category-container .btn-primary {
+    width: 100%; /* Full-width button */
+    background: #007bff;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    transition: background 0.3s ease-in-out;
+}
+
+.add-category-container .btn-primary:hover {
+    background: #0056b3;
+}
+
+/* Back link styling */
+.add-category-container a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+.add-category-container a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .add-category-container {
+        width: 90%;
+        margin: 60px auto; /* Adjust for smaller screens */
+    }
+}

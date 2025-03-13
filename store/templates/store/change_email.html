@@ -1,0 +1,16 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/change_email.css' %}">
+
+    <div class="change-email-container">
+        <h2>Change Email</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Update Email</button>
+        </form>
+        <p><a href="{% url 'profile' %}">Back to Profile</a></p>
+    </div>
+{% endblock %}

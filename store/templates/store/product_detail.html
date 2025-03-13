@@ -1,0 +1,44 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+
+<div class="product-detail-container">
+    <!-- Product Image -->
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+
+    <!-- Product Information -->
+    <h1>{{ product.name }}</h1>
+    <p class="category">📂 Category: {{ product.category.name }}</p>
+    <p>Discription: {{ product.description }}</p>
+    <p class="price">💰 Price: ₹{{ product.price }}</p>
+
+    <!-- Edit & Delete Buttons for Admin/Staff -->
+    {% if user.is_authenticated %}
+        {% if user.is_staff %}
+            <div class="product-detail-buttons">
+                <a href="{% url 'edit_product' product.slug %}" class="edit-button">✏️ Edit</a>
+                <a href="{% url 'delete_product' product.slug %}" class="delete-button">🗑️ Delete</a>
+            </div>
+        {% else %}
+            <!-- Add to Cart Button for Non-Admin Users -->
+            <form method="POST" action="{% url 'add_to_cart' product.slug %}">
+                {% csrf_token %}
+                
+                <!-- Quantity Selection -->
+                <label for="quantity">📦 Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-input">
+            
+                <!-- Add to Cart Button -->
+                <button type="submit" class="add-to-cart-button">🛒 Add to Cart</button>
+            </form>
+        {% endif %}
+    {% else %}
+        <!-- Add to Cart Button for Non-Authenticated Users -->
+        <div class="product-detail-buttons">
+            <a href="{% url 'add_to_cart' product.slug %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
+
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

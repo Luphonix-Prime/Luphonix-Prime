@@ -1,0 +1,70 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <h2 class="logo">Logo</h2>
+        <ul class="menu">
+            <li><a href="{% url 'dashboard' %}">📊 Dashboard</a></li>
+            <li><a href="{% url 'report_page' %}">📈 Reports</a></li>
+        </ul>
+    </aside>
+
+    <main class="dashboard-main">
+        <header class="dashboard-header">
+            <h2>📈 Reports</h2>
+            <div class="actions">
+                <button onclick="window.print()" class="btn btn-print">🖨️ Print Report</button>
+                <form method="POST" action="{% url 'clear_report' %}" onsubmit="return confirm('Are you sure?');">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-clear">❌ Clear Report</button>
+                </form>
+            </div>
+        </header>
+
+        <section class="report-summary">
+            <div class="stat-box red">
+                <h3>${{ total_revenue }}</h3>
+                <p>Total Revenue</p>
+            </div>
+            <div class="stat-box blue">
+                <h3>{{ total_orders }}</h3>
+                <p>Total Orders</p>
+            </div>
+        </section>
+
+        <section class="report-table">
+            <h3>📋 Order Records</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>#{{ order.id }}</td>
+                        <td>{{ order.user.username }}</td>
+                        <td>{{ order.created_at }}</td>
+                        <td>${{ order.total_price }}</td>
+                        <td>{{ order.status }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">No orders available.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+{% endblock %}

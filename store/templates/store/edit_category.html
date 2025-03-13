@@ -1,0 +1,15 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="text-center">Edit Category</h2>
+        <div class="card p-4">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Update Category</button>
+            </form>
+            <a href="{% url 'categories' %}" class="mt-3 d-block">Back to Categories</a>
+        </div>
+    </div>
+{% endblock %}

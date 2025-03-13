@@ -1,0 +1,40 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="edit-product-container">
+    <link rel="stylesheet" href="{% static 'css/edit_product.css' %}">
+
+    <div class="edit-product-wrapper">
+        <!-- Left Section: Old Product Details -->
+        <div class="edit-product-left">
+            <h2>Current Product Details</h2>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="edit-product-image">
+            <div class="edit-product-details">
+                <p><strong>Name:</strong> {{ product.name }}</p>
+                <p><strong>Category:</strong> {{ product.category.name }}</p>
+                <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            </div>
+        </div>
+
+        <!-- Right Section: Edit Form -->
+        <div class="edit-product-right">
+            <div class="edit-product-form-container">
+                <h2>Edit Product</h2>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                
+                    <button type="submit" class="edit-product-submit-btn">Save Changes</button>
+                </form>
+                
+                <a href="{% url 'product_list' %}" class="edit-product-back-btn">Back to Products</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/navigation.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,144 @@
+/* Reset Styles */
+.checkout-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Checkout Page Container */
+.checkout-container {
+    background-color: #1e1e2f;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh;  */
+    padding: 20px; /* Adds slight spacing */
+}
+
+/* Checkout Box with Fade-in Animation */
+/* Checkout Wrapper - Auto Adjust Height */
+.checkout-wrapper {
+    width: auto;  /* Adjust width based on content */
+    max-width: 800px;  /* Prevents it from becoming too wide */
+    background-color: #25233b;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: inline-block; /* Makes it shrink to fit content */
+    
+    /* Fade-in Animation */
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeInScale 0.4s ease-in-out forwards;
+}
+
+
+/* Fade-in & Scale-up Animation */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Checkout Table */
+.checkout-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+/* Table Header */
+.checkout-table th {
+    background-color: #343150;
+    color: #facc15;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+/* Table Rows */
+.checkout-table td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+/* Hover effect on table rows */
+.checkout-table tr:hover {
+    background-color: #2e2c48;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Product Image */
+.checkout-table td img {
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Image Hover Effect */
+.checkout-table td img:hover {
+    transform: scale(1.1);
+}
+
+/* Total Price */
+.checkout-total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #facc15;
+}
+
+/* Checkout Actions Box */
+.checkout-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Buttons */
+.checkout-cart-button, .checkout-place-order-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cart Button */
+.checkout-cart-button {
+    background-color: #facc15;
+    color: #000;
+}
+
+/* Hover Effect for Cart Button */
+.checkout-cart-button:hover {
+    background-color: #e5b200;
+    transform: scale(1.05);
+}
+
+/* Checkout Button */
+.checkout-place-order-button {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Hover Effect for Checkout Button */
+.checkout-place-order-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Button Click Effect */
+.checkout-cart-button:active, .checkout-place-order-button:active {
+    transform: scale(0.95);
+}

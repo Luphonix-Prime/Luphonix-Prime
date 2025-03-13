@@ -1,0 +1,56 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="cart-container">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
+    <div class="cart-wrapper">
+        <h2 class="cart-title">Shopping Cart</h2>
+
+        {% if cart_items %}
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart_items %}
+                        <tr>
+                            <td>{{ item.product.name }}</td>
+                            <td>
+                                <form action="{% url 'update_cart' item.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="cart-quantity-input">
+                                    <button type="submit" class="cart-update-btn">Update</button>
+                                </form>
+                            </td>
+                            <td>₹{{ item.product.price }}</td>
+                            <td>
+                                <a href="{% url 'remove_from_cart' item.id %}" class="cart-remove-btn">Remove</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <p class="cart-total"><strong>Total Price:</strong> ₹{{ total_price }}</p>
+
+            <!-- Buttons Wrapper -->
+            <div class="cart-buttons">
+                <a href="{% url 'product_list' %}" class="cart-back-btn">Back to Products</a>
+                <a href="{% url 'checkout' %}" class="cart-checkout-btn">Proceed to Checkout</a>
+            </div>
+        
+        {% else %}
+            <p class="cart-empty">Your cart is empty. <a href="{% url 'product_list' %}">Shop Now</a></p>
+        {% endif %}
+    </div>
+</div>
+<script src="{% static 'js/cart.js' %}"></script>
+
+{% endblock %}

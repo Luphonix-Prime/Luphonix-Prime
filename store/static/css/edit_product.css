@@ -1,0 +1,178 @@
+/* Reset Styles for this page */
+.edit-product-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page Background */
+.edit-product-container {
+    background-color: #1e1e2f;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Outer Container */
+.edit-product-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1000px;
+    background-color: #25233b;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------------- Left Section (Old Details) ---------------- */
+.edit-product-left {
+    flex: 1;
+    padding: 20px;
+    border-right: 2px solid #3a3a4f;
+}
+
+.edit-product-left h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.edit-product-image {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+}
+
+.edit-product-details {
+    font-size: 16px;
+    color: #bbb;
+}
+
+.edit-product-details p {
+    margin: 10px 0;
+}
+
+/* ---------------- Right Section (Edit Form) ---------------- */
+.edit-product-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Form Container */
+.edit-product-form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #2a2836;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Form Styles */
+.edit-product-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-product-form-container label {
+    text-align: left;
+    font-weight: bold;
+    color: #ddd;
+}
+
+/* Input Fields */
+.edit-product-form-container input,
+.edit-product-form-container textarea,
+.edit-product-form-container select {
+    width: 100%;
+    padding: 10px;
+    background: #2a2a3a;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+/* Placeholder Text */
+.edit-product-form-container input::placeholder,
+.edit-product-form-container textarea::placeholder {
+    color: #aaa;
+}
+
+/* Focus Effect */
+.edit-product-form-container input:focus,
+.edit-product-form-container textarea:focus,
+.edit-product-form-container select:focus {
+    border-color: #6c63ff;
+}
+
+/* Submit Button */
+.edit-product-submit-btn {
+    background-color: #6c63ff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.edit-product-submit-btn:hover {
+    background-color: #5a54d9;
+    transform: translateY(-2px);
+}
+
+/* Back Link */
+.edit-product-back-btn {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #a599ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.edit-product-back-btn:hover {
+    color: #7b72ff;
+    text-decoration: underline;
+}
+
+/* ---------------- Responsive Design ---------------- */
+@media (max-width: 768px) {
+    .edit-product-wrapper {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    .edit-product-left {
+        border-right: none;
+        border-bottom: 2px solid #3a3a4f;
+        padding-bottom: 20px;
+    }
+
+    .edit-product-left, .edit-product-right {
+        width: 100%;
+    }
+
+    .edit-product-image {
+        max-width: 100%;
+    }
+}

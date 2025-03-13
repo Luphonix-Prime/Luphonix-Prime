@@ -1,0 +1,37 @@
+/* Order Success Page Styles */
+.order-success-container {
+    font-family: 'Poppins', sans-serif;
+    background-color: #25233B;
+    margin: 0;
+    padding: 50px 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Order Confirmation Message */
+.order-success-title {
+    color: #10B981; /* Green for success */
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.order-success-message {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Continue Shopping Button */
+.order-success-button {
+    display: inline-block;
+    background-color: #1F2937; /* Dark Blue */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.order-success-button:hover {
+    background-color: #374151; /* Darker Blue */
+}

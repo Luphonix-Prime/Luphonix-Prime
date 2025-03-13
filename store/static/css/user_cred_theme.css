@@ -1,0 +1,289 @@
+/* 
+  Reset some defaults 
+  (optional but helps keep consistency)
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* or your preferred font */
+}
+
+/* General Body Styling */
+body {
+    background-color: #13122d;
+    color: #ffffff;
+}
+
+/********************************************************
+  ========== General Page & Layout ==========
+********************************************************/
+html, body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Outer container that holds both columns */
+.outer-container {
+    width: 900px;
+    height: 550px;
+    background: #1e1d2b;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/********************************************************
+  ========== Left Section (Image + Info) ==========
+********************************************************/
+.left-section {
+    flex: 1;
+    background: url('https://source.unsplash.com/600x800/?landscape,dark') center center no-repeat;
+    background-size: cover;
+    position: relative;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Top bar with brand & back button */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Bottom info (tagline + dots) */
+.bottom-info {
+    margin-top: auto;
+}
+.tagline {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.dots {
+    display: flex;
+    gap: 8px;
+}
+.dots span {
+    display: block;
+    width: 20px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+}
+.dots span:last-child {
+    background: #fff;
+}
+
+/* Updated Styling for the Download Image */
+.download-image {
+    width: 430px;
+    height: 355px;
+    object-fit: cover;
+    margin: 20px 0;
+    border-radius: 12px;
+}
+
+/********************************************************
+  ========== Right Section (Forms) ==========
+********************************************************/
+.right-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Form container */
+.form-container {
+    width: 80%;
+    max-width: 320px;
+    color: #fff;
+}
+
+.form-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/********************************************************
+  ========== Form Styles ==========
+********************************************************/
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    background: #2a2836;
+    border: 1px solid #3a3947;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder {
+    color: #999;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #6c63ff;
+}
+
+/* Buttons */
+button[type="submit"], .password-change-container button, .password-reset-container button {
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+button[type="submit"]:hover, .password-change-container button:hover, .password-reset-container button:hover {
+    background-color: #5a54d9;
+    transform: translateY(-1px);
+}
+
+/* Links */
+.form-container a {
+    text-decoration: none;
+    color: #a599ff;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.form-container a:hover {
+    color: #7b72ff;
+}
+
+.form-container p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+/********************************************************
+  ========== Password Change & Reset Containers ==========
+********************************************************/
+.password-change-container, .password-reset-container, .password-reset-done-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1f1f2e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Headings */
+.password-change-container h2, 
+.password-reset-container h2, 
+.password-reset-done-container h2 {
+    color: #5a36ff;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+/* Paragraph Styling */
+.password-change-container p, 
+.password-reset-container p, 
+.password-reset-done-container p {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Forms */
+.password-change-container form, 
+.password-reset-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Input fields */
+.password-change-container form input[type="password"],
+.password-reset-container input {
+    padding: 10px;
+    border: 1px solid #2c2c4a;
+    border-radius: 5px;
+    background-color: #2c2c4a;
+    color: #ffffff;
+    outline: none;
+}
+
+/* Links inside password reset */
+.password-reset-container a {
+    color: #5a36ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.password-reset-container a:hover {
+    text-decoration: underline;
+    color: #4a26ef;
+}
+
+/********************************************************
+  ========== Responsive Design ==========
+********************************************************/
+@media (max-width: 768px) {
+    .outer-container {
+        width: 95%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .left-section {
+        display: none;
+    }
+
+    .right-section {
+        padding: 20px;
+    }
+}
+
+.dots span {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    transition: background 0.3s ease;
+}
+
+.dots span.active-dot {
+    background-color: #808080 !important; /* Ensure it overrides other styles */
+}
+  

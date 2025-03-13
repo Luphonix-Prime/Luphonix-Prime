@@ -1,0 +1,24 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+    <div class="profile-page">
+        <div class="profile-container">
+            <h2>User Profile</h2>
+
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+
+            <a href="{% url 'edit_profile' %}">Edit Profile</a>
+            <a href="{% url 'password_change' %}">Change Password</a>
+            <a href="{% url 'password_reset' %}">Reset Password</a>
+
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

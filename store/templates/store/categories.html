@@ -1,0 +1,41 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/categories.css' %}">
+
+    <div class="category-container">
+        <h2>Categories</h2>
+        <div class="category-card">
+            <a href="{% url 'add_category' %}" class="btn btn-add">➕ Add Category</a>
+
+            <table class="category-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        {% comment %} <th>Description</th> {% endcomment %}
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for category in categories %}
+                        <tr>
+                            <td>{{ category.name }}</td>
+                            {% comment %} <td>{{ category.description }}</td> {% endcomment %}
+                            <td class="action-buttons">
+                                <a href="{% url 'edit_category' category.id %}" class="btn btn-edit">✏️ Edit</a>
+                                <form method="post" action="{% url 'delete_category' category.id %}" class="delete-form">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-delete">🗑️ Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="3" class="no-categories">No categories available.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

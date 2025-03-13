@@ -1,0 +1,18 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/add_product.css' %}">
+
+    <div class="add-product-container">
+        <h2>Add New Product</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {{ form.as_p }}  {# This already includes the category field #}
+
+            <button type="submit">Add Product</button>
+        </form>
+        <a href="{% url 'product_list' %}">Back to Products</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="dashboard-container">
+    <main class="dashboard-main">
+        <header class="dashboard-header">
+            <h2>🛠️ Reset Order Sequence</h2>
+        </header>
+
+        <section class="reset-options">
+            <form method="POST">
+                {% csrf_token %}
+                <p>Choose how to reset order IDs:</p>
+                
+                <label>
+                    <input type="radio" name="sequence_choice" value="reset_to_1" required>
+                    Start order IDs from 1
+                </label>
+
+                <label>
+                    <input type="radio" name="sequence_choice" value="continue_from_last" required>
+                    Continue from last order ID + 1
+                </label>
+
+                <button type="submit" class="btn btn-confirm">✅ Confirm</button>
+            </form>
+        </section>
+    </main>
+</div>
+{% endblock %}
